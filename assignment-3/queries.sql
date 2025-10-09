@@ -76,12 +76,15 @@ LIMIT 3;
 -- Most selected desired_value for each attribute
 SELECT p1.attribute, p1.desired_value
 FROM Preference p1
-GROUP BY p1.attribute, p1.desired_value   -- groups same combinations of attribute=desired_value
-HAVING COUNT(*) = (   -- HAVING filters groups
-    SELECT MAX(COUNT(*))   -- Keeps only the desired_value that appears the most often
-    FROM Preference p2   -- different name so they can check data independently
-    WHERE p2.attribute = p1.attribute   -- check same attributes only
-    GROUP BY p2.desired_value   -- group by same desired_value for current attribute
+GROUP BY p1.attribute, p1.desired_value   -- group same combinations of attribute=desired_value
+HAVING COUNT(*) = (   -- HAVING filters groups -> keep only those whose count equals max count
+    SELECT MAX(cnt)
+    FROM (
+        SELECT COUNT(*) AS cnt   -- count the times each desired_value appears
+        FROM Preference p2   -- different name so they can check data independently
+        WHERE p2.attribute = p1.attribute   -- check same attributes only
+        GROUP BY p2.desired_value
+    ) AS counts   -- derived table of counts - check MAX safely
 )
 ORDER BY p1.attribute;   -- order alphabetically
 -- put plainly: count all desired_values with p1, compare count to the max count with p2, keep the desired_value when the count matches
