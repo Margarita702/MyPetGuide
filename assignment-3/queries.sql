@@ -73,21 +73,15 @@ ORDER BY total_favorites DESC   -- order by most favorited->least and only show 
 LIMIT 3;
 -- put plainly: take all favorites, find which animal breed they are, count how many times they're favorited, sort from most to least popular and show only top three
 
--- Most selected desired_value for each attribute
-SELECT p1.attribute, p1.desired_value
-FROM Preference p1
-GROUP BY p1.attribute, p1.desired_value   -- group same combinations of attribute=desired_value
-HAVING COUNT(*) = (   -- HAVING filters groups -> keep only those whose count equals max count
-    SELECT MAX(cnt)
-    FROM (
-        SELECT COUNT(*) AS cnt   -- count the times each desired_value appears
-        FROM Preference p2   -- different name so they can check data independently
-        WHERE p2.attribute = p1.attribute   -- check same attributes only
-        GROUP BY p2.desired_value
-    ) AS counts   -- derived table of counts - check MAX safely
-)
-ORDER BY p1.attribute;   -- order alphabetically
--- put plainly: count all desired_values with p1, compare count to the max count with p2, keep the desired_value when the count matches
+-- All registered users who have not selected any preferences
+SELECT 
+    u.user_id,
+    u.user_name
+FROM User u
+LEFT JOIN Preference p ON u.user_id = p.user_id   -- link users to their preferences
+WHERE p.user_id IS NULL   -- keep only users who have no matches
+ORDER BY u.user_id;
+-- put plainly: join the User table with the Preference table and keep only users who don't appear in Preference table
 
 -- Top most expensive animals
 SELECT 
