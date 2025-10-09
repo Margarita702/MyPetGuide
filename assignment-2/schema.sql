@@ -24,17 +24,16 @@ CREATE TABLE Animal (
     animal_id INT AUTO_INCREMENT PRIMARY KEY,
 
     avg_size ENUM('Small','Medium','Large') NOT NULL,
-    temperament ENUM('Calm','Balanced','Playful') NOT NULL,
-    energy ENUM('Laid_back','Moderate','Active') NOT NULL,
     vocality ENUM('Quiet','Average','Loud') NOT NULL,
     shedding ENUM('Low','Medium','High') NOT NULL,
+    temperament ENUM('Calm','Balanced','Playful') NOT NULL,
+    energy ENUM('Laid_back','Moderate','Active') NOT NULL,
     sociability ENUM('Reserved','Indifferent','Sociable') NOT NULL,
+    assertiveness ENUM('Submissive','Balanced','Assertive') NOT NULL DEFAULT 'Balanced',
+    independence ENUM('Dependent','Moderate','Independent') NOT NULL,
     
     climate_tolerance ENUM('Cold','Temperate','Hot','Humid','Dry','Adaptable') NOT NULL DEFAULT 'Adaptable',
     space_requirements ENUM('Small','Medium','Large') NOT NULL,
-
-    assertiveness ENUM('Submissive','Balanced','Assertive') NOT NULL DEFAULT 'Balanced',
-    independence ENUM('Dependent','Moderate','Independent') NOT NULL,
 
     care_cost_level ENUM('Low','Medium','High') NOT NULL,
     hypoallergenic BOOLEAN NOT NULL DEFAULT FALSE
@@ -52,19 +51,19 @@ CREATE TABLE Dog (
 
 CREATE TABLE Cat (
     animal_id INT PRIMARY KEY,
+    breed_name VARCHAR(120) NOT NULL UNIQUE,
     coat_length ENUM('Short','Medium','Long') NOT NULL,
     grooming_need ENUM('Low','Moderate','High') NOT NULL,
-    breed_name VARCHAR(120) NOT NULL UNIQUE,
     image_url VARCHAR(255),
     FOREIGN KEY (animal_id) REFERENCES Animal(animal_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Bird (
     animal_id INT PRIMARY KEY,
-    wing_span ENUM('Small','Medium','Large') NOT NULL,
-    image_url VARCHAR(255),
-    talking_ability BOOLEAN NOT NULL DEFAULT FALSE,
     breed_name VARCHAR(120) NOT NULL UNIQUE,
+    wing_span ENUM('Small','Medium','Large') NOT NULL,
+    talking_ability BOOLEAN NOT NULL DEFAULT FALSE,
+    image_url VARCHAR(255),
     FOREIGN KEY (animal_id) REFERENCES Animal(animal_id) ON DELETE CASCADE
 );
 
@@ -73,9 +72,9 @@ CREATE TABLE Preference (
     pref_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     attribute ENUM(
-        'avg_size','temperament','energy','vocality','shedding',
-        'sociability','climate_tolerance','space_requirements',
-        'assertiveness','independence','care_cost_level','hypoallergenic'
+        'avg_size','vocality','shedding','temperament','energy',
+        'sociability','assertiveness','independence','climate_tolerance',
+        'space_requirements','care_cost_level','hypoallergenic'
     ) NOT NULL,
     desired_value VARCHAR(32) NOT NULL
 );
