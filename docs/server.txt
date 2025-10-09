@@ -1,0 +1,60 @@
+=============================================
+How to Upload and Run SQL Files on CLAMV
+=============================================
+1️⃣ Upload files to the CLAMV server
+---------------------------------------------
+Run this command from your own computer (not inside CLAMV):
+
+scp path/to/file.sql username@clabsql.clamv.constructor.university:~
+
+Example:
+scp ~/Documents/Databases/assignment2/schema.sql username@clabsql.clamv.constructor.university:~
+
+If you want to upload a whole folder:
+scp -r assignment3/ username@clabsql.clamv.constructor.university:~
+
+---------------------------------------------
+2️⃣ Check that your file uploaded correctly
+---------------------------------------------
+Log into CLAMV:
+ssh username@clabsql.clamv.constructor.university
+
+List files in your home directory:
+ls
+
+You should see your uploaded file or folder (for example: schema.sql or assignment3).
+
+---------------------------------------------
+3️⃣ Run your SQL file in MariaDB
+---------------------------------------------
+Start MariaDB:
+mysql -u username -p
+
+Select your database:
+USE db_username;
+
+Run your SQL file:
+SOURCE ~/schema.sql;
+or
+SOURCE ~/assignment3/queries.sql;
+
+---------------------------------------------
+4️⃣ Check your results
+---------------------------------------------
+Show all tables:
+SHOW TABLES;
+
+Look at a specific table:
+DESCRIBE Registered;
+
+Test a query:
+SELECT * FROM Registered;
+
+✅ Summary of Main Commands
+---------------------------------------------
+scp file.sql username@clabsql.clamv.constructor.university:~   → upload file
+ssh username@clabsql.clamv.constructor.university               → log into server
+mysql -u username -p                                            → start MariaDB
+USE db_username;                                                → select database
+SOURCE ~/file.sql;                                              → run SQL file
+EXIT;                                                           → quit MariaDB
