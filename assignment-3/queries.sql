@@ -75,13 +75,15 @@ LIMIT 3;
 
 -- All registered users who have not selected any preferences
 SELECT 
-    u.user_id,
-    u.user_name
-FROM User u
-LEFT JOIN Preference p ON u.user_id = p.user_id   -- link users to their preferences
-WHERE p.user_id IS NULL   -- keep only users who have no matches
-ORDER BY u.user_id;
--- put plainly: join the User table with the Preference table and keep only users who don't appear in Preference table
+    r.user_id,
+    r.first_name,
+    r.last_name,
+    r.email
+FROM Registered r
+LEFT JOIN Sets s ON r.user_id = s.user_id   -- link to preferences via Sets table
+WHERE s.user_id IS NULL   -- keep only those with no preferences linked
+ORDER BY r.user_id;
+-- put plainly: join the Registered table with the Sets table and keep only users who don't appear in Sets table
 
 -- Top most expensive animals
 SELECT 
