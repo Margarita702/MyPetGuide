@@ -1,0 +1,255 @@
+/* MyPetGuide Design */
+
+:root {
+  --text-brown: #A7743A;
+  --pink: #FF6B7D;
+  --pink-light: #FFC2CC;
+  --hover-blue: #7DB5FF;
+  --cream: #FFF4D6;
+  --peach: #F6C090;
+  --beige-dark: #E8BE8A;
+  
+  --primary: var(--text-brown);
+  --bg: #FFF7EA;
+  --card-bg: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--primary);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* header */
+.header {
+  position: sticky;
+  top: 0;
+  background: rgba(250,249,246,0.85);
+  border-bottom: 1px solid #E8E6E0;
+  backdrop-filter: blur(5px);
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+}
+
+.brand-title {
+  color: var(--text-brown);
+  font-size: 22px;
+}
+
+/* sign in button */
+.signin {
+  padding: 10px 16px;
+  border: 1px solid #E1E1DC;
+  background: #fff;
+  border-radius: 999px;
+  color: var(--text-brown);
+  transition: 0.2s;
+}
+
+.signin:hover {
+  background-image: linear-gradient(90deg, var(--pink), var(--hover-blue));
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* hero section */
+.hero {
+  padding: 50px 0;
+}
+
+.hero-panel {
+  background: linear-gradient(180deg, var(--beige-dark), var(--pink-light));
+  border-radius: 16px;
+  padding: 50px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.h1 {
+  font-size: 56px;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--text-brown);
+  font-weight: 900;
+  text-align: center;
+}
+
+.sub {
+  color: var(--text-brown);
+  font-size: 28px; /* increased from 20px */
+  margin-top: 10px;
+  text-align: center;
+  opacity: 0.95;
+}
+
+
+.hero-art img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .h1 {
+    font-size: 42px;
+  }
+
+  .hero-art img {
+    max-height: 340px;
+    object-fit: contain;
+  }
+}
+
+/* cards section */
+.section {
+  padding: 60px 0 80px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid #EEECE6;
+  box-shadow: 0 6px 20px rgba(20,20,20,0.06);
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(20,20,20,0.1);
+  border-color: #F3D7BF;
+}
+
+.icon-tile {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #E7F1FF;
+  display: grid;
+  place-items: center;
+  margin-bottom: 10px;
+}
+
+.icon-img {
+  width: 24px;
+  height: 24px;
+}
+
+.card h3 {
+  font-size: 22px;
+  margin: 8px 0;
+  color: var(--text-brown);
+}
+
+.card p {
+  margin: 0;
+  color: var(--text-brown);
+  opacity: 0.9;
+}
+
+.card .note {
+  margin-top: auto;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.card:hover h3 {
+  background-image: linear-gradient(90deg, var(--pink), var(--hover-blue));
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* footer */
+.footer {
+  border-top: 1px solid #E8E6E0;
+  padding: 25px 0;
+  text-align: center;
+  color: var(--text-brown);
+}
+
+.footer a {
+  margin: 0 10px;
+  text-decoration: underline;
+  color: var(--text-brown);
+}
+
+.gradlink:hover {
+  background-image: linear-gradient(90deg, var(--pink), var(--hover-blue));
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  border-bottom: 1px dashed rgba(122, 181, 255, 0.5);
+}
+
+/* back home link */
+.back-home {
+  display: inline-block;
+  margin: 8px 0 16px;
+  padding: 8px 12px;
+  border: 1px solid #E1E1DC;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--text-brown);
+  transition: 0.2s;
+}
+
+.back-home:hover {
+  background-image: linear-gradient(90deg, var(--pink), var(--hover-blue));
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
