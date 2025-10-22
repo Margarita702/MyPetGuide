@@ -4,6 +4,7 @@ Git Team Workflow – Safe Collaboration
 
 When several teammates work on the same branch (e.g. assignment3):
 
+--------------------------------------
 1️⃣ Before starting work
 --------------------------------------
 Make sure your local copy is up to date.
@@ -11,17 +12,20 @@ Run:
 git checkout assignment3
 git pull origin assignment3
 
+--------------------------------------
 2️⃣ Make your edits
 --------------------------------------
-Open files, add or edit your part
+Open files, add or edit your part.
 
+--------------------------------------
 3️⃣ Save your work locally
 --------------------------------------
 Run:
 git add .
-git status - To see what is added
+git status     # To see what is added
 git commit -m "Your short message here"
 
+--------------------------------------
 4️⃣ Sync with teammates' new changes
 --------------------------------------
 Run:
@@ -30,18 +34,39 @@ git pull origin assignment3
 If someone pushed new commits, Git will merge them with yours.
 If there are conflicts, open the files and fix them (Git will show <<< >>> markers).
 
+--------------------------------------
 5️⃣ Upload (push) your changes
 --------------------------------------
 Run:
 git push origin assignment3
 
-6️⃣ Repeat this process each time you work
+--------------------------------------
+6️⃣ Keep your local branches clean and updated
+--------------------------------------
+From time to time, fetch new branches and remove deleted ones from GitHub.
+
+Run:
+git fetch --prune
+
+This:
+- Updates your list of remote branches.
+- Removes branches deleted on GitHub.
+- Helps you see any new branches created by teammates.
+
+You can also list all remote branches with:
+git branch -r
+
+--------------------------------------
+7️⃣ Repeat this process each time you work
 --------------------------------------
 Always:
 - Pull before you start working.
 - Commit and pull again before pushing.
+- Fetch and prune occasionally to stay synced with the team.
 
+--------------------------------------
 ✅ Summary of the golden rule
 --------------------------------------
 If you HAVEN’T edited anything yet → git pull first.
 If you HAVE already edited files → add + commit, then pull, then push.
+If you see missing or old branches → run git fetch --prune.
