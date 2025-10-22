@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Registered User – MyPetGuide</title>
+  <title>Add Registered User</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -12,7 +12,7 @@
     <h1 class="h1">Add Registered User</h1>
 
     <!-- form now posts to its OWN feedback file -->
-    <form action="entity_registered_feedback.php" method="POST">
+    <form action="registered_feedback.php" method="POST">
       <label>First Name:</label><br>
       <input type="text" name="first_name" required><br><br>
 
