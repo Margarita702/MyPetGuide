@@ -11,7 +11,7 @@
   <div class="container">
     <h1 class="h1">Add Registered User</h1>
 
-    <!-- form now posts to its OWN feedback file -->
+    <!-- POST to feedback file -->
     <form action="registered_feedback.php" method="POST">
       <label>First Name:</label><br>
       <input type="text" name="first_name" required><br><br>

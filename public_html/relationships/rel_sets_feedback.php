@@ -9,9 +9,9 @@ $pref_id = $_POST['pref_id'];
 $sql = "INSERT INTO Sets (user_id, pref_id) VALUES ($user_id, $pref_id)";
 
 if (mysqli_query($conn, $sql)) {
-    echo "<p>✅ Relationship created successfully! (User $user_id ↔ Preference $pref_id)</p>";
+    echo "<p>Relationship created successfully! (User $user_id ↔ Preference $pref_id)</p>";
 } else {
-    echo "<p>❌ Error: " . mysqli_error($conn) . "</p>";
+    echo "<p>Error: " . mysqli_error($conn) . "</p>";
 }
 
 echo '<a href="../maintenance.html">← Back to Maintenance Page</a>';
