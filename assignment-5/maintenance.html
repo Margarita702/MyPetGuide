@@ -25,90 +25,51 @@
     <section class="section">
       <div class="container">
         <h1 class="h1">Maintenance Page</h1>
-        <p class="sub">Add new data or manage relationships in your database</p>
+        <p class="sub">Add new data or manage relationships</p>
 
         <!-- Entities section -->
         <h2 style="margin-top: 40px;">Entities:</h2>
         <div class="cards">
           <article class="card">
-            <div class="icon-tile">
-              <img src="img/icon-user.png" class="icon-img" alt="user icon">
-            </div>
+            <img src="img/icon-user.png" class="icon-img" alt="user icon">
             <h3>Add Registered User</h3>
             <p>Insert a new registered user with login credentials.</p>
-            <a href="entities/user_form.php" class="gradlink">Open Form →</a>
+            <a href="entities/registered_form.php" class="gradlink">Open Form →</a>
           </article>
 
           <article class="card">
-            <div class="icon-tile">
-              <img src="img/icon-user.png" class="icon-img" alt="guest icon">
-            </div>
-            <h3>Add Guest User</h3>
-            <p>Insert a new guest user record.</p>
-            <a href="entity_guest_form.php" class="gradlink">Open Form →</a>
-          </article>
-
-          <article class="card">
-            <div class="icon-tile">
-              <img src="img/icon-dog.png" class="icon-img" alt="animal icon">
-            </div>
+            <img src="img/icon-animal.png" class="icon-img" alt="animal icon">
             <h3>Add Animal</h3>
             <p>Insert a new animal entry with its attributes.</p>
-            <a href="entity_animal_form.php" class="gradlink">Open Form →</a>
+            <a href="entities/animal_form.php" class="gradlink">Open Form →</a>
           </article>
 
           <article class="card">
-            <div class="icon-tile">
-              <img src="img/icon-dog.png" class="icon-img" alt="dog icon">
-            </div>
+            <img src="img/icon-dog.png" class="icon-img" alt="dog icon">
             <h3>Add Dog</h3>
             <p>Insert a new dog breed (linked to an animal record).</p>
-            <a href="entity_dog_form.php" class="gradlink">Open Form →</a>
+            <a href="entities/dog_form.php" class="gradlink">Open Form →</a>
           </article>
 
           <article class="card">
-            <div class="icon-tile">
-              <img src="img/icon-cat.png" class="icon-img" alt="cat icon">
-            </div>
+            <img src="img/icon-cat.png" class="icon-img" alt="cat icon">
             <h3>Add Cat</h3>
             <p>Insert a new cat breed (linked to an animal record).</p>
-            <a href="entity_cat_form.php" class="gradlink">Open Form →</a>
+            <a href="entities/cat_form.php" class="gradlink">Open Form →</a>
           </article>
 
           <article class="card">
-            <div class="icon-tile">
-              <img src="img/icon-bird.png" class="icon-img" alt="bird icon">
-            </div>
-            <h3>Add Bird</h3>
-            <p>Insert a new bird breed (linked to an animal record).</p>
-            <a href="entity_bird_form.php" class="gradlink">Open Form →</a>
-          </article>
-
-          <article class="card">
-            <div class="icon-tile">
-              <img src="img/icon-settings.png" class="icon-img" alt="preference icon">
-            </div>
+            <img src="img/icon-preference.png" class="icon-img" alt="preference icon">
             <h3>Add Preference</h3>
             <p>Insert a new user preference for an animal attribute.</p>
-            <a href="entity_preference_form.php" class="gradlink">Open Form →</a>
+            <a href="entities/preference_form.php" class="gradlink">Open Form →</a>
           </article>
 
           <article class="card">
-            <div class="icon-tile">
-              <img src="img/icon-settings.png" class="icon-img" alt="essential icon">
-            </div>
+            <img src="img/icon-preference.png" class="icon-img" alt="essential icon">
             <h3>Add Essential Preference</h3>
-            <p>Mark a preference as essential for matching.</p>
-            <a href="entity_essential_form.php" class="gradlink">Open Form →</a>
-          </article>
-
-          <article class="card">
-            <div class="icon-tile">
-              <img src="img/icon-settings.png" class="icon-img" alt="preferred icon">
-            </div>
-            <h3>Add Preferred Preference</h3>
-            <p>Mark a preference as preferred (non-essential).</p>
-            <a href="entity_preferred_form.php" class="gradlink">Open Form →</a>
+            <p>Mark a preference as essential.</p>
+            <a href="entities/essential_form.php" class="gradlink">Open Form →</a>
           </article>
         </div>
 
@@ -116,30 +77,24 @@
         <h2 style="margin-top: 60px;">Relationships:</h2>
         <div class="cards">
           <article class="card">
-            <div class="icon-tile">
-              <img src="img/icon-heart.png" class="icon-img" alt="favorite icon">
-            </div>
+            <img src="img/icon-favourite.png" class="icon-img" alt="favorite icon">
             <h3>Link Favorite</h3>
             <p>Connect a registered user with an animal as a favorite.</p>
-            <a href="rel_favorite_form.php" class="gradlink">Open Form →</a>
+            <a href="relationships/rel_favorite_form.php" class="gradlink">Open Form →</a>
           </article>
 
           <article class="card">
-            <div class="icon-tile">
-              <img src="img/icon-link.png" class="icon-img" alt="sets icon">
-            </div>
+            <img src="img/icon-link-sets.png" class="icon-img" alt="sets icon">
             <h3>Link Sets</h3>
             <p>Connect a user to a selected preference.</p>
-            <a href="rel_sets_form.php" class="gradlink">Open Form →</a>
+            <a href="relationships/rel_sets_form.php" class="gradlink">Open Form →</a>
           </article>
 
           <article class="card">
-            <div class="icon-tile">
-              <img src="img/icon-link.png" class="icon-img" alt="fulfill icon">
-            </div>
+            <img src="img/icon-fulfill.png" class="icon-img" alt="fulfill icon">
             <h3>Link Fulfill</h3>
             <p>Connect an animal with a fulfilled preference.</p>
-            <a href="rel_fulfill_form.php" class="gradlink">Open Form →</a>
+            <a href="relationships/rel_fulfill_form.php" class="gradlink">Open Form →</a>
           </article>
         </div>
 
