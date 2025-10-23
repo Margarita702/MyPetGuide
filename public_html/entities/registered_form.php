@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,16 @@
 </head>
 
 <body>
-  <div class="container">
+  <header class="header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="../img/logo.png" alt="logo" width="28" height="28">
+        <a href="../index.html" class="brand-title">MyPetGuide</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" style="padding: 40px;">
     <h1 class="h1">Add Registered User</h1>
 
     <!-- POST to feedback file -->
@@ -34,4 +44,5 @@
     <a href="../maintenance.html" class="back-home">← Back to Maintenance</a>
   </div>
 </body>
+
 </html>

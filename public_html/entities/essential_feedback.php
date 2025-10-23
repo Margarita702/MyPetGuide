@@ -1,19 +1,12 @@
 <?php
 include '../db/db_connect.php';
 
-// Read submitted data
-$animal_id     = $_POST['animal_id'];
-$breed_name    = $_POST['breed_name'];
-$coat_length   = $_POST['coat_length'];
-$grooming_need = $_POST['grooming_need'];
-$image_url     = $_POST['image_url'];
+$pref_id = $_POST['pref_id'];
 
-// Insert into Cat
-$sql = "INSERT INTO Cat (animal_id, breed_name, coat_length, grooming_need, image_url)
-        VALUES ($animal_id, '$breed_name', '$coat_length', '$grooming_need', '$image_url')";
+$sql = "INSERT INTO EssentialPreference (pref_id) VALUES ('$pref_id')";
 
 if (mysqli_query($conn, $sql)) {
-    $message = "Cat added successfully!";
+    $message = "Essential Preference added successfully!";
 } else {
     $message = "Error: " . mysqli_error($conn);
 }
@@ -26,11 +19,12 @@ mysqli_close($conn);
 
 <head>
     <meta charset="UTF-8">
-    <title>Cat - Feedback</title>
+    <title>Essential Preference - Feedback</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+
     <header class="header">
         <div class="container header-inner">
             <div class="brand">
@@ -45,6 +39,7 @@ mysqli_close($conn);
         <p><?php echo $message; ?></p>
         <a href="../maintenance.html" class="back-home">← Back to Maintenance</a>
     </main>
+
 </body>
 
 </html>

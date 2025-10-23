@@ -1,21 +1,17 @@
 <?php
 include '../db/db_connect.php';
 
-// Read submitted data
-$animal_id     = $_POST['animal_id'];
-$breed_name    = $_POST['breed_name'];
-$coat_length   = $_POST['coat_length'];
-$grooming_need = $_POST['grooming_need'];
-$image_url     = $_POST['image_url'];
+$user_id = $_POST['user_id'];
+$attribute = $_POST['attribute'];
+$desired_value = $_POST['desired_value'];
 
-// Insert into Cat
-$sql = "INSERT INTO Cat (animal_id, breed_name, coat_length, grooming_need, image_url)
-        VALUES ($animal_id, '$breed_name', '$coat_length', '$grooming_need', '$image_url')";
+$sql = "INSERT INTO Preference (user_id, attribute, desired_value)
+        VALUES ('$user_id', '$attribute', '$desired_value')";
 
 if (mysqli_query($conn, $sql)) {
-    $message = "Cat added successfully!";
+    $message = "Preference added successfully!";
 } else {
-    $message = "Error: " . mysqli_error($conn);
+    $message = "Error adding preference: " . mysqli_error($conn);
 }
 
 mysqli_close($conn);
@@ -26,7 +22,7 @@ mysqli_close($conn);
 
 <head>
     <meta charset="UTF-8">
-    <title>Cat - Feedback</title>
+    <title>Preference - Feedback</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
