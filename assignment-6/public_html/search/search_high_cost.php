@@ -4,11 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Search Top Favorited Animals - MyPetGuide</title>
+  <title>Search High-Cost Animals - MyPetGuide</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-
 <header class="header">
   <div class="container header-inner">
     <div class="brand">
@@ -18,20 +17,19 @@
   </div>
 </header>
 
-
 <main class="section">
   <div class="container">
   <a href="../index.html" class="back-home">← Back to Home</a>
-  <a href="../search.php" class="back-home">← Back to Search Center</a>  
-  <h1 class="h1" style="font-size:38px;">Top 3 Most Loved Pets</h1>
-    <p class="sub">Take a look at the current stars!</p>
+  <a href="../search.php" class="back-home">← Back to Search Center</a>
+  <h1 class="h1" style="font-size:38px;">High-Cost Animals</h1>
+    <p class="sub">Take a look at the high-cost animals!</p>
 
     <div class="container" style="grid-template-columns:1fr;">
       <div class="container">
-        <h3>Press the button to see the favourite pets.</h3>
-  <form action="top_favourites_result.php" method="GET" style="margin-top:20px;">
-    <button type="submit" class="signin">Show Top Favorites</button>
-  </form>
+        <h3>Press the button to see the high-cost animals.</h3>
+        <form method="get" action="search_high_cost_results.php" style="margin-top:12px;">
+          <button type="submit" class="signin">Show Results</button>
+        </form>
       </div>
     </div>
   </div>
@@ -46,6 +44,5 @@
     </p>
   </div>
 </footer>
-
 </body>
 </html>
