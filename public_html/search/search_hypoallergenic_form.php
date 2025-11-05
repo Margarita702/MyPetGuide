@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Top Loved Pets</title>
+  <title>Search Hypoallergenic Animals</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -21,20 +21,21 @@
   <div class="container">
     <a href="../index.html" class="back-home">← Back to Home</a>
     <a href="../search.php" class="back-home">← Back to Search Center</a>
-
-    <h1 class="h1" style="font-size:38px;">Top Loved Pets</h1>
-    <p class="sub">Discover which animals users love the most!</p>
+    <h1 class="h1" style="font-size:38px;">Hypoallergenic Animals</h1>
+    <p class="sub">Find pets that are safe for allergy-sensitive owners.</p>
 
     <div class="container" style="grid-template-columns:1fr;">
       <div class="container">
-        <h3>Select how many of the most loved pets to view:</h3>
-
-        <form method="get" action="top_favourites_result.php" style="margin-top:12px;">
-          <label for="limit" style="font-size:18px;">Number of top pets to show:</label><br>
-          <input type="number" id="limit" name="limit" min="1" max="50" value="5"
-                 style="padding:8px; border-radius:8px; margin-top:6px; border:1px solid #ccc;" required>
+        <h3>Select if you want to see only hypoallergenic animals:</h3>
+        <form method="get" action="search_hypoallergenic_results.php" style="margin-top:12px;">
+          <label for="hypoallergenic" style="font-size:18px;">Show only hypoallergenic animals?</label><br>
+          <select name="hypoallergenic" id="hypoallergenic" required
+                  style="padding:8px; border-radius:8px; margin-top:6px; border:1px solid #ccc;">
+            <option value="1">Yes</option>
+            <option value="0">No (show all)</option>
+          </select>
           <br><br>
-          <button type="submit" class="signin">Show Top Loved Pets</button>
+          <button type="submit" class="signin">Search</button>
         </form>
       </div>
     </div>

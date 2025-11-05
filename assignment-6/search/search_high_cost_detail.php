@@ -1,31 +1,10 @@
-<?php
-include '../db/db_connect.php';
-
-if (isset($_GET['id'])) {
-  $id = intval($_GET['id']);
-  $sql = "
-  SELECT 
-    a.animal_id,
-    a.hypoallergenic,
-    a.care_cost_level,
-    a.temperament,
-    COALESCE(d.breed_name, c.breed_name, b.breed_name) AS breed_name
-  FROM Animal a
-  LEFT JOIN Dog d ON a.animal_id = d.animal_id
-  LEFT JOIN Cat c ON a.animal_id = c.animal_id
-  LEFT JOIN Bird b ON a.animal_id = b.animal_id
-  WHERE a.animal_id = $id;
-  ";
-  $result = mysqli_query($conn, $sql);
-  $animal = mysqli_fetch_assoc($result);
-}
-?>
+<?php include '../db/db_connect.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animal Details - MyPetGuide</title>
+  <title>Animal Details</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -38,20 +17,57 @@ if (isset($_GET['id'])) {
   </div>
 </header>
 
-<main class="container" style="padding:50px 20px 80px;">
-  <a href="search_high_cost_results.php" class="back-home">← Back to Results</a>
-  <h1 class="h1" style="font-size:38px;">Animal Details</h1>
+<main class="section">
+  <div class="container">
+    <a href="../index.html" class="back-home">← Back to Home</a>
+    <a href="search_high_cost_form.php" class="back-home">← Back to Search Form</a>
+    <h1 class="h1" style="font-size:38px;">Animal Details</h1>
 
-  <?php if (!empty($animal)): ?>
-    <p><strong>ID:</strong> <?= htmlspecialchars($animal['animal_id']) ?></p>
-    <p><strong>Breed Name:</strong> <?= htmlspecialchars($animal['breed_name']) ?></p>
-    <p><strong>Temperament:</strong> <?= htmlspecialchars($animal['temperament']) ?></p>
-    <p><strong>Care Cost Level:</strong> <?= htmlspecialchars($animal['care_cost_level']) ?></p>
-    <p><strong>Hypoallergenic:</strong> <?= $animal['hypoallergenic'] ? 'Yes' : 'No' ?></p>
-  <?php else: ?>
-    <p>No details found for this animal.</p>
-  <?php endif; ?>
+<?php
+if (!isset($_GET['id'])) {
+    echo "<p>No animal selected.</p>";
+    exit;
+}
 
+$id = $_GET['id'];
+
+$stmt = $conn->prepare("
+    SELECT a.*, 
+           COALESCE(d.breed_name, c.breed_name, b.breed_name) AS breed_name,
+           CASE 
+              WHEN d.animal_id IS NOT NULL THEN 'Dog'
+              WHEN c.animal_id IS NOT NULL THEN 'Cat'
+              WHEN b.animal_id IS NOT NULL THEN 'Bird'
+           END AS species,
+           COALESCE(d.image_url, c.image_url, b.image_url) AS image_url
+    FROM Animal a
+    LEFT JOIN Dog d ON a.animal_id = d.animal_id
+    LEFT JOIN Cat c ON a.animal_id = c.animal_id
+    LEFT JOIN Bird b ON a.animal_id = b.animal_id
+    WHERE a.animal_id = ?
+");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($row = $result->fetch_assoc()) {
+    echo "<div class='card' style='margin-top:20px; text-align:center;'>
+            <img src='" . htmlspecialchars($row['image_url'] ?: '../img/no-image.png') . "' 
+                 alt='Animal image' style='width:200px; height:200px; object-fit:cover; border-radius:10px;'>
+            <h2 style='margin-top:12px;'>" . htmlspecialchars($row['breed_name']) . "</h2>
+            <p><strong>Species:</strong> " . htmlspecialchars($row['species']) . "</p>
+            <p><strong>Care Cost Level:</strong> " . htmlspecialchars($row['care_cost_level']) . "</p>
+            <p><strong>Energy:</strong> " . htmlspecialchars($row['energy']) . "</p>
+            <p><strong>Sociability:</strong> " . htmlspecialchars($row['sociability']) . "</p>
+            <p><strong>Climate Tolerance:</strong> " . htmlspecialchars($row['climate_tolerance']) . "</p>
+            <p><strong>Space Requirements:</strong> " . htmlspecialchars($row['space_requirements']) . "</p>
+          </div>";
+} else {
+    echo "<p>Animal not found.</p>";
+}
+?>
+
+  </div>
 </main>
 
 <footer class="footer">
