@@ -1,8 +1,8 @@
 <?php
-$servername = "";
-$username = "";
-$password = "";
-$dbname = "";
+$servername = "db";
+$username = "myuser";
+$password = "mypass";
+$dbname = "mypetguide";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -12,5 +12,4 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-echo "Connected successfully!";
 ?>
