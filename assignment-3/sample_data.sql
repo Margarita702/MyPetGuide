@@ -28,7 +28,17 @@ INSERT INTO Animal (
 (7, 'Small', 'Quiet', 'Low', 'Calm', 'Laid_back', 'Reserved', 'Submissive', 'Dependent', 'Adaptable', 'Small', 'Low', TRUE),
 (8, 'Medium', 'Average', 'Medium', 'Balanced', 'Moderate', 'Indifferent', 'Balanced', 'Moderate', 'Temperate', 'Medium', 'Medium', FALSE),
 (9, 'Small', 'Loud', 'Low', 'Playful', 'Active', 'Sociable', 'Balanced', 'Independent', 'Hot', 'Small', 'Medium', FALSE),
-(10, 'Large', 'Average', 'Medium', 'Calm', 'Moderate', 'Sociable', 'Assertive', 'Moderate', 'Cold', 'Large', 'High', FALSE);
+(10, 'Large', 'Average', 'Medium', 'Calm', 'Moderate', 'Sociable', 'Assertive', 'Moderate', 'Cold', 'Large', 'High', FALSE),
+(11, 'Large', 'Loud', 'High', 'Playful', 'Active', 'Sociable', 'Assertive', 'Independent', 'Cold', 'Large', 'High', FALSE),
+(12, 'Large', 'Quiet', 'Low', 'Calm', 'Laid_back', 'Sociable', 'Balanced', 'Moderate', 'Cold', 'Large', 'Medium', FALSE),
+(13, 'Small', 'Loud', 'Low', 'Playful', 'Active', 'Sociable', 'Assertive', 'Independent', 'Hot', 'Small', 'Medium', FALSE),
+(14, 'Medium', 'Quiet', 'Low', 'Calm', 'Active', 'Sociable', 'Balanced', 'Moderate', 'Adaptable', 'Medium', 'Medium', TRUE),
+(15, 'Small', 'Loud', 'Low', 'Playful', 'Active', 'Sociable', 'Assertive', 'Independent', 'Hot', 'Small', 'Medium', FALSE),
+(16, 'Large', 'Quiet', 'Medium', 'Calm', 'Laid_back', 'Sociable', 'Submissive', 'Dependent', 'Temperate', 'Medium', 'Medium', FALSE),
+(17, 'Large', 'Loud', 'High', 'Playful', 'Active', 'Sociable', 'Balanced', 'Moderate', 'Cold', 'Large', 'High', FALSE),
+(18, 'Medium', 'Quiet', 'High', 'Calm', 'Laid_back', 'Sociable', 'Submissive', 'Dependent', 'Temperate', 'Medium', 'High', FALSE),
+(19, 'Medium', 'Loud', 'Low', 'Playful', 'Active', 'Sociable', 'Assertive', 'Independent', 'Adaptable', 'Medium', 'Medium', FALSE),
+(20, 'Small', 'Quiet', 'Medium', 'Calm', 'Laid_back', 'Sociable', 'Submissive', 'Moderate', 'Temperate', 'Small', 'Medium', FALSE);
 
 -- DOGS
 INSERT INTO Dog (animal_id, breed_name, trainability, grooming_need, image_url) VALUES
@@ -36,13 +46,23 @@ INSERT INTO Dog (animal_id, breed_name, trainability, grooming_need, image_url) 
 (2, 'German Shepherd', 'Challenging', 'High', 'https://example.com/dog2.jpg'),
 (6, 'Labrador Retriever', 'Easy', 'Moderate', 'https://example.com/dog3.jpg'),
 (10, 'Rottweiler', 'Challenging', 'High', 'https://example.com/dog4.jpg');
+(11, 'Siberian Husky', 'Challenging', 'High', 'https://example.com/husky.jpg'),
+(12, 'Greyhound', 'Easy', 'Low', 'https://example.com/greyhound.jpg'),
+(13, 'Chihuahua', 'Moderate', 'Low', 'https://example.com/chihuahua.jpg'),
+(14, 'Poodle', 'Easy', 'High', 'https://example.com/poodle.jpg'),
+(17, 'Samoyed', 'Moderate', 'High', 'https://example.com/samoyed.jpg'),
+(20, 'Cavalier King Charles Spaniel', 'Easy', 'Moderate', 'https://example.com/cavalier.jpg');
 
 -- CATS
 INSERT INTO Cat (animal_id, breed_name, coat_length, grooming_need, image_url) VALUES
 (3, 'Sphynx', 'Short', 'Low', 'https://example.com/cat1.jpg'),
 (4, 'Maine Coon', 'Long', 'High', 'https://example.com/cat2.jpg'),
 (7, 'Russian Blue', 'Short', 'Low', 'https://example.com/cat3.jpg'),
-(8, 'British Shorthair', 'Medium', 'Moderate', 'https://example.com/cat4.jpg');
+(8, 'British Shorthair', 'Medium', 'Moderate', 'https://example.com/cat4.jpg'),
+(15, 'Siamese', 'Short', 'Low', 'https://example.com/siamese.jpg'),
+(16, 'Ragdoll', 'Long', 'High', 'https://example.com/ragdoll.jpg'),
+(18, 'Persian', 'Long', 'High', 'https://example.com/persian.jpg'),
+(19, 'Bengal', 'Short', 'Moderate', 'https://example.com/bengal.jpg');
 
 -- BIRDS
 INSERT INTO Bird (animal_id, breed_name, wing_span, talking_ability, image_url) VALUES
@@ -139,13 +159,16 @@ INSERT INTO Fulfill (animal_id, pref_id) VALUES
 (1, 40), (1, 41), (1, 42), (1, 45), (1, 47),
 
 -- German Shepherd
-(2, 13), (2, 14), (2, 16), (2, 17), (2, 18), (2, 19), (2, 20), (2, 21), (2, 22), (2, 23),
-(2, 41), (2, 42), (2, 43), (2, 44), (2, 45), (2, 46), (2, 47),
+(2, 13), (2, 14), (2, 16), (2, 17), (2, 18),
+(2, 19), (2, 20), (2, 21), (2, 22), (2, 23),
+(2, 41), (2, 42), (2, 43), (2, 44), (2, 45), 
+(2, 46), (2, 47),
 
 -- Sphynx
-(3, 1), (3, 2), (3, 3), (3, 8), (3, 10), (3, 12),
-(3, 25), (3, 26), (3, 27), (3, 29), (3, 32), (3, 34), (3, 35), (3, 36),
-(3, 37), (3, 38), (3, 39), (3, 44), (3, 46), (3, 48),
+(3, 1), (3, 2), (3, 3), (3, 8), (3, 10), 
+(3, 12), (3, 25), (3, 26), (3, 27), (3, 29),
+(3, 32), (3, 34), (3, 35), (3, 36), (3, 37),
+(3, 38), (3, 39), (3, 44), (3, 46), (3, 48),
 
 -- Maine Coon
 (4, 4), (4, 5), (4, 6), (4, 9), (4, 11),
@@ -159,13 +182,17 @@ INSERT INTO Fulfill (animal_id, pref_id) VALUES
 (5, 37), (5, 39), (5, 41), (5, 46), (5, 47),
 
 -- Labrador Retriever
-(6, 13), (6, 16), (6, 17), (6, 18), (6, 19), (6, 20), (6, 21), (6, 22), (6, 23),
-(6, 41), (6, 42), (6, 43), (6, 44), (6, 45), (6, 46), (6, 47),
+(6, 13), (6, 16), (6, 17), (6, 18), (6, 19),
+(6, 20), (6, 21), (6, 22), (6, 23), (6, 41), 
+(6, 42), (6, 43), (6, 44), (6, 45), (6, 46), 
+(6, 47),
 
 -- Russian Blue
-(7, 1), (7, 2), (7, 3), (7, 4), (7, 10), (7, 12),
-(7, 25), (7, 26), (7, 27), (7, 29), (7, 32), (7, 34), (7, 35), (7, 36),
-(7, 37), (7, 38), (7, 39), (7, 40), (7, 44), (7, 46), (7, 48),
+(7, 1), (7, 2), (7, 3), (7, 4), (7, 10), 
+(7, 12), (7, 25), (7, 26), (7, 27), (7, 29),
+(7, 32), (7, 34), (7, 35), (7, 36), (7, 37),
+(7, 38), (7, 39), (7, 40), (7, 44), (7, 46),
+(7, 48),
 
 -- British Shorthair
 (8, 4), (8, 5), (8, 6), (8, 9), (8, 11),
@@ -175,14 +202,84 @@ INSERT INTO Fulfill (animal_id, pref_id) VALUES
 
 -- Cockatiel
 (9, 1), (9, 3), (9, 5), (9, 6), (9, 10),
-(9, 16), (9, 17), (9, 18), (9, 22),
-(9, 25), (9, 27), (9, 29), (9, 30), (9, 33), (9, 34), (9, 35),
-(9, 37), (9, 39), (9, 41), (9, 42), (9, 46), (9, 47),
+(9, 16), (9, 17), (9, 18), (9, 22), (9, 25), 
+(9, 27), (9, 29), (9, 30), (9, 33), (9, 34), 
+(9, 35), (9, 37), (9, 39), (9, 41), (9, 42), 
+(9, 46), (9, 47),
 
 -- Rottweiler
-(10, 13), (10, 16), (10, 17), (10, 18), (10, 19), (10, 20), (10, 21), (10, 22), (10, 23),
+(10, 13), (10, 16), (10, 17), (10, 18),
+(10, 19), (10, 20), (10, 21), (10, 22), (10, 23),
 (10, 28), (10, 29), (10, 30), (10, 33), (10, 35),
-(10, 40), (10, 41), (10, 42), (10, 43), (10, 45), (10, 47);
+(10, 40), (10, 41), (10, 42), (10, 43), (10, 45),
+(10, 47),
+
+-- Husky
+(11, 13), (11, 14), (11, 16), (11, 17), (11, 18),
+(11, 19), (11, 20), (11, 21), (11, 22), (11, 23),
+(11, 41), (11, 42), (11, 43), (11, 44), (11, 45), 
+(11, 46), (11, 47),
+
+-- Greyhound
+(12, 1), (12, 2), (12, 3), (12, 4), (12, 5), 
+(12, 6), (12, 7), (12, 8), (12, 9), (12, 10), 
+(12, 11), (12, 25), (12, 26), (12, 27), (12, 28),
+(12, 29), (12, 30), (12, 31), (12, 32), (12, 33),
+(12, 34), (12, 35), (12, 37), (12, 38), (12, 39), 
+(12, 40), (12, 41), (12, 42), (12, 44), (12, 45), 
+(12, 46), (12, 47),
+
+-- Chihuahua
+(13, 37), (13, 38), (13, 39), (13, 41), (13, 42),
+(13, 43), (13, 44), (13, 45), (13, 46), (13, 47),
+(13, 1), (13, 3), (13, 5), (13, 10), (13, 28), 
+(13, 29), (13, 30), (13, 33), (13, 35),
+
+-- Poodle
+(14, 1), (14, 2), (14, 3), (14, 4), (14, 5),
+(14, 6), (14, 7), (14, 8), (14, 9), (14, 10),
+(14, 25), (14, 26), (14, 27), (14, 28), (14, 29),
+(14, 30), (14, 31), (14, 32), (14, 33), (14, 34),
+
+-- Siamese
+(15, 37), (15, 38), (15, 39), (15, 41), (15, 42),
+(15, 43), (15, 44), (15, 46), (15, 47), (15, 25), 
+(15, 27), (15, 29), (15, 32), (15, 34), (15, 35),
+(15, 1), (15, 3), (15, 5),
+
+-- Ragdoll
+(16, 4), (16, 5), (16, 6), (16, 9), (16, 11),
+(16, 28), (16, 29), (16, 30), (16, 33), (16, 35),
+(16, 40), (16, 41), (16, 42), (16, 45), (16, 47),
+(16, 25), (16, 26), (16, 27), (16, 29), (16, 32),
+(16, 34), (16, 35),
+
+-- Samoyed
+(17, 13), (17, 14), (17, 16), (17, 17), (17, 18),
+(17, 19), (17, 20), (17, 21), (17, 22), (17, 23),
+(17, 41), (17, 42), (17, 43), (17, 44), (17, 45),
+(17, 46), (17, 47),
+
+-- Persian
+(18, 4), (18, 5), (18, 6), (18, 9), (18, 11),
+(18, 28), (18, 29), (18, 30), (18, 33), (18, 35),
+(18, 25), (18, 26), (18, 27), (18, 29), (18, 32), 
+(18, 34), (18, 35), (18, 40), (18, 41), (18, 42), 
+(18, 45), (18, 47),
+
+-- Bengal
+(19, 37), (19, 38), (19, 39), (19, 41), (19, 42),
+(19, 43), (19, 44), (19, 45), (19, 46), (19, 47),
+(19, 25), (19, 27), (19, 29), (19, 32), (19, 34), 
+(19, 35), (19, 1), (19, 3), (19, 5), (19, 10),
+
+-- King Cavalier Charles Spaniel
+(20, 1), (20, 2), (20, 4), (20, 5), (20, 6),
+(20, 8), (20, 9), (20, 10), (20, 11), (20, 25), 
+(20, 26), (20, 27), (20, 28), (20, 29), (20, 30), 
+(20, 31), (20, 33), (20, 34), (20, 35), (20, 37), 
+(20, 38), (20, 40), (20, 41), (20, 42), (20, 44), 
+(20, 45), (20, 46), (20, 47);
 
 -- SETS
 INSERT INTO Sets (user_id, pref_id) VALUES

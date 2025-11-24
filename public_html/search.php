@@ -15,7 +15,7 @@
     <div class="container header-inner">
       <div class="brand">
         <img src="img/logo.png" alt="logo" width="28" height="28">
-        <span class="brand-title">MyPetGuide</span>
+        <a href="index.html" class="brand-title">MyPetGuide</a>
       </div>
       <nav>
         <a href="index.html" class="signin">Home</a>
